@@ -3,6 +3,16 @@
 # Default number of threads
 num_threads=10
 
+
+display_help() {
+  echo "IP Range Scanner"
+  echo "Usage: rp.sh [OPTIONS] <IP_RANGE>"
+  echo ""
+  echo "Options:"
+  echo "  -t NUM_THREADS     Specify the number of threads (default: 10)"
+  echo "  -h                 Display this help menu"
+}
+
 # Array to store child process IDs
 pids=()
 
@@ -28,10 +38,17 @@ check_ip() {
 }
 
 # Parse command line options
-while getopts "t:" opt; do
+while getopts "t:h" opt; do
   case ${opt} in
-    t)
+      t)
       num_threads=$OPTARG
+      ;;
+    o)
+      output_file=$OPTARG
+      ;;
+    h)
+      display_help
+      exit 0
       ;;
     \?)
       echo "Invalid option: -$OPTARG" >&2
