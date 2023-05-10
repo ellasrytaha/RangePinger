@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Default number of threads
-num_threads=10
+num_threads=250
 
 
 display_help() {
