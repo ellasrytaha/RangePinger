@@ -33,7 +33,7 @@ check_ip() {
   ip=$1
   ping -c 1 -W 1 $ip >/dev/null 2>&1
   if [ $? -eq 0 ]; then
-    echo "$ip is live"
+    echo "$ip"
   fi
 }
 
